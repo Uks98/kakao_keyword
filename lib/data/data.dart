@@ -7,7 +7,7 @@ class MapData {
   String? phone; // 해당 장소 번호
   String? x; // 위도
   String? y; // 경도
-  String? distance;
+  String? distance;// 거리
 
   MapData({this.id,
     this.address_name,

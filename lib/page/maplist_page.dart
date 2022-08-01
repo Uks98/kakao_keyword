@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
+import 'package:keyword_map/maptile_card.dart';
 import 'package:keyword_map/service/http.dart';
 
 import '../data/data.dart';
@@ -61,10 +62,7 @@ class _MapListPageState extends State<MapListPage> {
               itemCount: mapList?.length,
               itemBuilder: (context,index){
                 final i  = mapList![index];
-            return ListTile(
-              title: Text(i.placeName.toString()),
-              subtitle: Text(i.address_name.toString()),
-            );
+            return MapTile(mapData: i);
           }))
         ],
       ),
