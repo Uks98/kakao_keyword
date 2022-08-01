@@ -55,15 +55,18 @@ class _MapListPageState extends State<MapListPage> {
         child: Icon(Icons.add),
       ),
       body: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
            searchController.text.isEmpty ? Container(
              child: Center(child: Text("키워드를 입력해주세요"),),
-           ):Expanded(child: ListView.builder(
-              itemCount: mapList?.length,
+           ):Expanded(child: ListView.separated(
+              itemCount: mapList!.length,
               itemBuilder: (context,index){
                 final i  = mapList![index];
             return MapTile(mapData: i);
-          }))
+          }, separatorBuilder: (BuildContext context, int index) {
+                return Divider(thickness: 1.5,endIndent: 10,indent: 10,);
+           },))
         ],
       ),
     );

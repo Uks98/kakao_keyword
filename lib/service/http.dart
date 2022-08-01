@@ -42,7 +42,7 @@ class LocationClass{
     } else {
       Position currentLoc = await Geolocator.getCurrentPosition(
           desiredAccuracy: LocationAccuracy.best);
-        toastMessage(context,"현재 위치정보입니다.");
+        toastMessage(context, "정보를 불러왔습니다.",);
         longitude = currentLoc.longitude;
         latitude = currentLoc.latitude;
         print(longitude);
@@ -50,6 +50,6 @@ class LocationClass{
     }
   }
   void toastMessage(BuildContext context,String text){
-    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text)));
+    ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text(text),backgroundColor: Colors.white,));
   }
 }

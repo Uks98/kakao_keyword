@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'keyword_map',
       theme: ThemeData(
         primarySwatch: Colors.blue,
+        fontFamily: "nunnu"
       ),
       home: MapListPage(),
     );
