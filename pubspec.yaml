@@ -37,7 +37,7 @@ dependencies:
   http:
   sqflite: ^2.0.3
   geolocator: ^8.2.0
-  google_maps_flutter:
+  google_maps_flutter: ^2.0.3
   path:
 dev_dependencies:
   flutter_test:

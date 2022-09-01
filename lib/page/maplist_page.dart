@@ -8,6 +8,7 @@ import 'package:keyword_map/service/http.dart';
 import 'package:keyword_map/service/sq_lite.dart';
 
 import '../data/data.dart';
+import 'all_map_page.dart';
 
 class MapListPage extends StatefulWidget {
   const MapListPage({Key? key}) : super(key: key);
@@ -78,7 +79,7 @@ class _MapListPageState extends State<MapListPage> {
             children: [
               IconButton(
                   padding: EdgeInsets.only(right: 20),
-                  onPressed: (){}, icon: Icon(Icons.map_outlined,color: Colors.grey[800],)),
+                  onPressed: ()=> Navigator.of(context).push(MaterialPageRoute(builder: (context)=>AllMapPage(keyword: searchController.text,))), icon: Icon(Icons.map_outlined,color: Colors.grey[800],)),
               Expanded(
                 child: TextField(
                   controller: searchController,
@@ -93,10 +94,7 @@ class _MapListPageState extends State<MapListPage> {
                 ),
               ),
               TextButton(
-                onPressed: () => setState(
-                  () {
-                    getMapData();
-                  },
+                onPressed: () => setState(() {getMapData();},
                 ),
                 child: Text(
                   "검색",
