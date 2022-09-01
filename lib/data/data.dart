@@ -29,4 +29,17 @@ class MapData {
         y: data["y"].toString(),
         distance: data["distance"].toString());
   }
+
+  Map<String,dynamic>toMap(){
+    return {
+    "id" : id,
+    "address_name" :address_name,
+    "categoryName" :categoryName,
+    "placeName" :placeName,
+    "phone":phone,
+    "x":x,
+    "y":y,
+    "distance":distance,
+    };
+  }
 }

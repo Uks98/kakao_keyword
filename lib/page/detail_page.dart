@@ -28,7 +28,7 @@ class _MapDataPageState extends State<MapDataPage> {
     _googleMapCamera = CameraPosition(
       target: LatLng(double.parse(widget.mapData.y.toString()),
           double.parse(widget.mapData.x.toString())),
-      zoom: 15,
+      zoom: 18,
     );
     MarkerId markerId = MarkerId(widget.mapData.hashCode.toString());
     marker = Marker(
@@ -74,7 +74,7 @@ class _MapDataPageState extends State<MapDataPage> {
       height: 500,
       width: MediaQuery.of(context).size.width,
       child: GoogleMap(
-        mapType: MapType.terrain,
+        mapType: MapType.normal,
         initialCameraPosition: _googleMapCamera!,
         onMapCreated: (GoogleMapController controller) {
           _controller.complete(controller);

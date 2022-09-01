@@ -8,12 +8,15 @@ import 'package:keyword_map/data/data.dart';
 
 class MapApi extends LocationClass{
   List<MapData> mapData = [];
-  Future<List<MapData>?> getMapList({required String keyword, required int page}) async {
+  Future<List<MapData>?> getMapList({required String keyword, required int page,required BuildContext context}) async {
     var url = "https://dapi.kakao.com/v2/local/search/keyword.json?y=${latitude}&x=${longitude}&radius=20000&query=$keyword&page=$page&sort=distance";
     var response = await http.get(Uri.parse(url), headers: {"Authorization": "KakaoAK 5026bccd6af45144199ef3f70f4b7ec7"});
     if (response.statusCode == 200) {
       String body = utf8.decode(response.bodyBytes);
       var res = json.decode(body) as Map<String,dynamic>;
+      if(res["documents"] == ""){
+        showDia(context);
+      }
       for(final _res in res["documents"]){
         final m = MapData.fromJson(_res as Map<String,dynamic>);
         mapData.add(m);
@@ -25,6 +28,17 @@ class MapApi extends LocationClass{
   String toString() {
     // TODO: implement toString
     return super.toString();
+  }
+  void showDia(BuildContext context){
+      showDialog(
+          context: context,
+          builder: (context){
+            return AlertDialog(
+              title: Text("🚨알림🚨"),
+              content: Text("마지막 정보에요 😭"),
+            );
+          }
+      );
   }
 }
 
